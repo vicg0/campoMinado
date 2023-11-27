@@ -38,6 +38,7 @@
 
     var listaCampo = []; // precisa criar a lista 
     // alert(`Parabéns, você ganhou o jogo !);
+    var listaVerificacao = [];
 
 
     var qtdBombas = 0;
@@ -67,7 +68,9 @@
 
             else {
                 bomba = 'nada'
+                listaVerificacao.push("vazio");
             }
+
 
 
             campoMinado.innerHTML += ` 
@@ -90,7 +93,6 @@
         if (campo.className == 'bomba') {
             campo.innerHTML = `<img src="./assets/bomba.png" style="width: 100px" onclick="verificar()">`
             explosoes += 1
-
         }
 
         else {
@@ -98,6 +100,9 @@
             pontos += 100;
         }
 
+        if(listaVerificacao.length == listaVerificacao.){
+            alert("Acabou o jogo");
+        }
         quantas_explosões.innerHTML = explosoes
         quantos_pontos.innerHTML = pontos
 
