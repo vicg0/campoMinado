@@ -36,6 +36,10 @@
 </html>
 <script>
 
+    var listaCampo = []; // precisa criar a lista 
+    // alert(`Parabéns, você ganhou o jogo !);
+
+
     var qtdBombas = 0;
     var pontos = 0;
     var explosoes = 0;
@@ -84,13 +88,13 @@
         console.log(campo)
 
         if (campo.className == 'bomba') {
-            campo.innerHTML = `<img src="./assets/bomba.png" style="width: 100px">`
+            campo.innerHTML = `<img src="./assets/bomba.png" style="width: 100px" onclick="verificar()">`
             explosoes += 1
 
         }
 
         else {
-            campo.innerHTML = `<img src="./assets/stop.png" style="width: 100px">`
+            campo.innerHTML = `<img src="./assets/stop.png" style="width: 100px" onclick="verificar()">`
             pontos += 100;
         }
 
@@ -104,5 +108,6 @@
         alert('esse botão ja foi clicado');
 
     }
+
 
 </script>
