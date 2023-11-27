@@ -40,7 +40,8 @@
     // alert(`Parabéns, você ganhou o jogo !);
     var listaVerificacao = [];
     var campoVazio = 0;
-    var qntdbombas = 0;
+    var qtdVazio = 0;
+
 
 
     var qtdBombas = 0;
@@ -49,6 +50,10 @@
     function novoJogo() {
 
         qtdBombas = 0;
+
+        quantos_pontos.innerHTML = ``
+        quantas_explosões.innerHTML = ``
+        quantas_minas.innerHTML = ``
 
         var explosoes = Number(quantas_explosões.values);
         var minas = Number(quantas_minas.values);
@@ -69,10 +74,10 @@
                 listaVerificacao.push(`bomba`)
             }
 
-            else {
+            else {  
                 bomba = 'nada'
                 listaVerificacao.push("vazio");
-                qntdbombas +=1;
+                qtdVazio +=1;
             }
 
 
@@ -114,8 +119,10 @@
         quantas_explosões.innerHTML = explosoes;
         quantos_pontos.innerHTML = pontos;
 
-        if(campoVazio == qntdbombas){
+        if(campoVazio == qtdVazio){
             alert(`Parabéns, você ganhou o jogo !`);
+            campoVazio = 0; 
+            qtdVazio = 0;
         }
     }
 
