@@ -40,6 +40,7 @@
     // alert(`Parabéns, você ganhou o jogo !);
     var listaVerificacao = [];
     var campoVazio = 0;
+    var qntdbombas = 0;
 
 
     var qtdBombas = 0;
@@ -65,11 +66,13 @@
             if (bombaOuNao == 1) {
                 bomba = "bomba"
                 qtdBombas ++
+                listaVerificacao.push(`bomba`)
             }
 
             else {
                 bomba = 'nada'
                 listaVerificacao.push("vazio");
+                qntdbombas +=1;
             }
 
 
@@ -102,14 +105,18 @@
             pontos += 100;
             campoVazio += 1;
             console.log(campoVazio);
+
         }
 
         if(listaVerificacao.length == campoVazio){
             alert("Acabou o jogo");
         }
-        quantas_explosões.innerHTML = explosoes
-        quantos_pontos.innerHTML = pontos
+        quantas_explosões.innerHTML = explosoes;
+        quantos_pontos.innerHTML = pontos;
 
+        if(campoVazio == qntdbombas){
+            alert(`Parabéns, você ganhou o jogo !`);
+        }
     }
 
     function verificar() {
