@@ -54,9 +54,28 @@
                 bomba = "https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-help-1.png"
             }
 
-            campoMinado.innerHTML += ` <img id="${posicao}" onclick='bombaOuVazio(${posicao})' src="https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-help-1.png" alt="" style="width: 100px; height: 100px border: 2px solid #000">`;
+            
+            campoMinado.innerHTML += ` 
+            <span id="${posicao}">  
+            
+            <img onclick='bombaOuVazio(${posicao})' src="https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-help-1.png" alt="" style="width: 100px; height: 100px border: 2px solid #000">
+            </span>`;
         }
+
+
     }
 
+
+function bombaOuVazio(id) {
+
+id.innerHTML = `<img onclick='verificar()' src="https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-help-1.png" alt="" style="width: 100px; height: 100px border: 2px solid #000">`
+
+}
+    
+function verificar() {
+
+alert('esse botão ja foi clicado')
+
+}
 
 </script>
