@@ -1,53 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
-<h1>campo minado sptech</h1>
 
-tipos de campo:
-<select name="" id="campo">
-    <option value="2">2x2</option>
-    <option value="4">4x4</option>
-    <option value="6">6x6</option>
-</select><br>
+    <h1>campo minado sptech</h1>
 
-minas:
-<div id="quantas_minas"></div> <br>
+    tipos de campo:
+    <select name="" id="campo">
+        <option value="2">2x2</option>
+        <option value="4">4x4</option>
+        <option value="6">6x6</option>
+    </select><br>
 
-explosões:
-<div id="quantas_explosões"></div> <br>
+    minas:
+    <div id="quantas_minas"></div> <br>
 
-pontos:
-<div id="quantos_pontos"></div> <Br>
+    explosões:
+    <div id="quantas_explosões"></div> <br>
 
-<button onclick="novoJogo()"> Novo Jogo</button>
+    pontos:
+    <div id="quantos_pontos"></div> <Br>
 
-<div id="campoMinado"></div>
+    <button onclick="novoJogo()"> Novo Jogo</button>
+
+    <div id="campoMinado"></div>
 
 </body>
+
 </html>
 <script>
-    function novoJogo(){
+    function novoJogo() {
 
-        var explosoes =  Number(quantas_explosões.values);
-        var minas =  Number(quantas_minas.values);
-        var pontos =  Number(quantos_pontos.values);
+        var explosoes = Number(quantas_explosões.values);
+        var minas = Number(quantas_minas.values);
+        var pontos = Number(quantos_pontos.values);
+        var bomba = "";
 
         campoMinado.innerHTML = ''
 
-    for(var posicao = 0; posicao < campo.value*campo.value; posicao += 1){
-        if(posicao%campo.value == 0 && posicao != 1){
-            campoMinado.innerHTML += `<br>`;
+        for (var posicao = 0; posicao < campo.value * campo.value; posicao += 1) {
+            if (posicao % campo.value == 0 && posicao != 1) {
+                campoMinado.innerHTML += `<br>`;
+            }
+
+            var bombaOuNao = parseInt(Math.random() * 2 + 1);
+            if (bombaOuNao == 1) {
+                bomba = "https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-help-1.png"
+            }
+
+            campoMinado.innerHTML += ` <img id="${posicao}" onclick='bombaOuVazio(${posicao})' src="https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-help-1.png" alt="" style="width: 100px; height: 100px border: 2px solid #000">`;
         }
-        
-        campoMinado.innerHTML += ` <img id="${posicao}" onclick='bombaOuVazio(${posicao})' src="https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-help-1.png" alt="" style="width: 100px; height: 100px border: 2px solid #000">`; 
-    }
     }
 
-    
+
 </script>
