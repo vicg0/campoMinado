@@ -51,12 +51,16 @@
 
             var bombaOuNao = parseInt(Math.random() * 2 + 1);
             if (bombaOuNao == 1) {
-                bomba = "https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-help-1.png"
-            } 
+                bomba = "bomba"
+            }
 
-            
-           campoMinado.innerHTML += ` 
-            <span id="${posicao+'span'}" onclick="bombaOuVazio('${posicao + 'span'}')">  
+            else {
+                bomba = 'nada'
+            }
+
+
+            campoMinado.innerHTML += ` 
+            <span class = "${bomba}" id="${posicao + 'span'}" onclick="bombaOuVazio('${posicao + 'span'}')">  
             
             <img  src="https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-help-1.png" alt="" style="width: 100px; height: 100px border: 2px solid #000">
             </span>`;
@@ -66,19 +70,28 @@
     }
 
 
-function bombaOuVazio(id) {
-    
-    var campo = document.getElementById(id)
-    console.log(campo)
+    function bombaOuVazio(id) {
 
-    campo.innerHTML = `<img onclick="verificar()" src="https://www.flaticon.com/free-icon/stop_545666?term=square&page=1&position=1&origin=search&related_id=545666" alt="" style="width: 100px; height: 100px border: 2px solid #000">`
+        var campo = document.getElementById(id)
+        console.log(campo)
 
-}
-    
-function verificar() {
+        if (id.class == 'bomba') {
+            campo.innerHTML = `<img onclick="verificar()" src="https://www.flaticon.com/free-icon/bomb_2998220" alt="" style="width: 100px; height: 100px border: 2px solid #000">`
 
-alert('esse botão ja foi clicado');
+        }
 
-}
+        else {
+            campo.innerHTML = `<img onclick="verificar()" src="" alt="" style="width: 100px; height: 100px border: 2px solid #000">`
+        }
+
+
+
+    }
+
+    function verificar() {
+
+        alert('esse botão ja foi clicado');
+
+    }
 
 </script>
