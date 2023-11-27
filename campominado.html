@@ -39,6 +39,7 @@
     var listaCampo = []; // precisa criar a lista 
     // alert(`Parabéns, você ganhou o jogo !);
     var listaVerificacao = [];
+    var fimdojogo = 1;
 
 
     var qtdBombas = 0;
@@ -98,10 +99,12 @@
         else {
             campo.innerHTML = `<img src="./assets/stop.png" style="width: 100px" onclick="verificar()">`
             pontos += 100;
+            fimdojogo += 1;
         }
 
-        if(listaVerificacao.length == listaVerificacao.){
+        if(listaVerificacao.length == fimdojogo){
             alert("Acabou o jogo");
+            console.log(fimdojogo);
         }
         quantas_explosões.innerHTML = explosoes
         quantos_pontos.innerHTML = pontos
