@@ -84,13 +84,13 @@
         console.log(campo)
 
         if (campo.className == 'bomba') {
-            campo.innerHTML = `bomba`
+            campo.innerHTML = `<img src="./assets/bomba.png" style="width: 100px">`
             explosoes += 1
 
         }
 
         else {
-            campo.innerHTML = `nada`
+            campo.innerHTML = `<img src="./assets/stop.png" style="width: 100px">`
             pontos += 100;
         }
 
